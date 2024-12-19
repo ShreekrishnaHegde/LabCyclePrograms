@@ -9,12 +9,13 @@ Employee
 #include <iostream>
 using namespace std;
 class Employee{
-    int Employee_Number;
-    string Employee_Name;
-    int Employee_basic;
-    float Employee_Da;
-    float Employee_It;
-    float Employee_Net_Salary;
+    private:
+        int Employee_Number;
+        string Employee_Name;
+        int Employee_basic;
+        float Employee_Da;
+        float Employee_It;
+        float Employee_Net_Salary;
 
     public: 
         void read();
