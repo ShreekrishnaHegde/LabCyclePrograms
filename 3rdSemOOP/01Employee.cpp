@@ -1,4 +1,5 @@
 /*
+---------------------------1------------------------------
 Given that an EMPLOYEE class contains following members:
 Data members: Employee_Number, Employee_Name, Basic, DA, IT, Net_Sal
 Member functions: to read the data, to calculate Net_Sal and to print data members.
@@ -22,6 +23,7 @@ class Employee{
         void display();
         void compute_salary(int Employee_basic);
 };
+//to read the details of the employee
 void Employee::read(){
     cout<<"\nEnter employee number: ";
     cin>>Employee_Number;
@@ -30,6 +32,7 @@ void Employee::read(){
     cout<<"\nEnter employee basic: ";
     cin>>Employee_basic;
 }
+//to display the details of the employee
 void Employee:: display(){
     compute_salary(Employee_basic);
 	cout<<"\nEmployee Name      :  "<<Employee_Name;
@@ -39,6 +42,7 @@ void Employee:: display(){
 	cout<<"\nIncome Tax         :  "<<Employee_It;
 	cout<<"\nNet Salary         :  "<<Employee_Net_Salary<<endl;
 }
+//to compute the salary of the employee
 void Employee::compute_salary(int Employee_basic){
     /*
     Net salary=Basic+DA-IT
@@ -60,8 +64,7 @@ int main(){
         cout<<"\n\tEnter the details of employee "<<i+1<<endl;
         employee[i].read();
     }
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++){
         cout<<"\n\tEmployee "<<i+1<<" details"<<endl;
         employee[i].display();
     }
