@@ -1,4 +1,5 @@
 /*
+-----------------------------------4----------------------------------------------
 Write a C++ program to create a class called LIST (linked list) with member functions to
 insert an element at the front as well as to delete an element from the front of the list.
 Demonstrate all the functions after creating a list object.
@@ -7,51 +8,76 @@ Demonstrate all the functions after creating a list object.
 #include <iostream>
 using namespace std;
 
+//Node class
 class Node{
     public:
         int value;
         Node* next;
-        Node(){
-            this->value=0;
-            this->next=NULL;
-        }
-        Node(int value){
+        Node(int value=0){
             this->value=value;
             this->next=NULL;
         }
 };
-class LinkedList{
 
+class LinkedList{
     private:
         Node *head;
     public:
         LinkedList(){
             head=NULL;
         }
-        void insertFirst(int value){
-            Node *newNode=new Node(value);
-            if(head==NULL){
-                head=newNode;
-                return;
-            }
-            newNode->next=this->head;
-            this->head=newNode;
+        void insertFirst(int);
+        void deleteFirst();
+        void display();
 
-        }
-        void deleteFirst(){
-            if(head==NULL){
-                cout<<"\nNothing to delete";
-            }
-            head=head->next;
-        }
-        void display(){
-            Node* temp=head;
-            while(temp!=NULL){
-                cout<<temp->value<<"->";
-                temp=temp->next;
-            }
-        }
+        
 };
+/*
+to insert an element into the list at first position
+->Make the first node of Linked List linked to the new node
+->Remove the head from the original first node of Linked List
+->Make the new node as the Head of the Linked List.
+*/
+void LinkedList:: insertFirst(int value){
+    Node *newNode=new Node(value);
+    if(head==NULL){
+        head=newNode;
+        return;
+    }
+    newNode->next=this->head;
+    this->head=newNode;
+
+}
+/*
+to delete first elelement from the list.
+->store the current head in a temporary variable (temp)
+->move the head pointer to the next node
+->delete the temporary head node
+*/
+void LinkedList::deleteFirst(){
+    if(head==NULL){
+        cout<<"\nList is Empty" ;
+        return;
+    }
+    Node* temp=head;
+    head=head->next;
+    cout<<"\nThe deleted element is: "<<temp->value;
+    delete temp;
+}
+//to display the content of the list
+void LinkedList:: display(){
+    Node* temp=head;
+    if(temp==NULL){
+        cout<<"\nList is empty";
+        return;
+    }
+    cout<<"\nElements in the linked list are: ";
+    while(temp!=NULL){
+        cout<<temp->value<<"-->";
+        temp=temp->next;
+    }
+    cout<<"NULL";
+}
 int main(){
     int choice,item;
     LinkedList list;
@@ -68,7 +94,9 @@ int main(){
                     break;
             case 3: list.display();
                     break;
-                    
+            case 4: cout<<"\nExiting!!!\nThank you!";
+                    exit(0);
+            default: exit(0);                    
         }
     }
     while(choice!=4);
