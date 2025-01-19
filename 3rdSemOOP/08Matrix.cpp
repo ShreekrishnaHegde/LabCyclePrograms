@@ -98,7 +98,6 @@ int main(){
         m4=m1-m2;
         cout<<m1<<"    +\n"<<m2<<"    =\n"<<m3<<endl;
         cout<<m1<<"    -\n"<<m2<<"    =\n"<<m4<<endl;
-
     }
     else{
         cout<<"\nTwo matrices are not compitable for addition/subtraction";

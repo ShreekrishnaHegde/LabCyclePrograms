@@ -29,7 +29,7 @@ class Book: public Publication{
             Book(string title,int acc_no):Publication(title),acc_no(acc_no){};
             void print() override{
                 Publication::print();
-                cout<<"\nAccession Number: "<<acc_no;
+                cout<<"\nAccession Number: "<<acc_no<<endl;
             }
 
 };
@@ -38,10 +38,10 @@ class Magazine: public Publication{
     protected:
             int vol_number;
     public:
-            Magazine(string title,int vol_no):Publication(title),vol_number(vol_number){}; 
+            Magazine(string title,int vol_number):Publication(title),vol_number(vol_number){}; 
             void print() override{
                 Publication::print();
-                cout<<"\nVolume Number: "<<vol_number;
+                cout<<"\nVolume Number: "<<vol_number<<endl;
             }
 };
 
