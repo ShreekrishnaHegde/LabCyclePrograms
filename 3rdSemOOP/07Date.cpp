@@ -42,9 +42,9 @@ int Date::operator-(Date d2) {
     for (int year = d2.yy; year < yy; year++) {
         noly += isLeapYear(year) ? 1 : 0;
     }
-    nod+=(yy-d2.yy)*365;
+    nod+=(yy-d2.yy)*365+noly;
     //To add remaining number of days from no leap years(1 day)
-    nod+=(yy-d2.yy-noly);
+    // nod+=(yy-d2.yy-noly);
     
     //If days of d1's day is less that d2, then days are borrowed from previous month, 
     //Days of previous month are added by checking the year is leap year or not.
@@ -96,3 +96,14 @@ int main() {
     cout<<"\nAfter adding given days: " <<d1;
     return 0;
 }
+
+
+/*
+Algorithm to convert to find the number of days between two date objects
+
+->Initialize the nod (number of days ) and noly (number of leap years) to 0.
+->loop through each year starting from d2 till d1(this) and increment noly by 1 if it is leap year
+->Calculate the difference in years b/w current date and d2 and multipy by 365 
+->Subtract the number of leap years also, (1day/one year)
+->
+*/
