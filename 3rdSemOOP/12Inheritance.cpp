@@ -10,6 +10,24 @@ number 1.Invoke the print() function for this object.
 
 #include <iostream>
 using namespace std;
+class Publication{
+
+};
+
+class Book: public Publication{
+    private:
+            int acc_no;
+};
+
+class Magazine: public Publication{
+    private:
+            int vol_number;
+};
+
+class Journal: public Book, public Magazine{
+
+};
+
 
 int main(){
 
