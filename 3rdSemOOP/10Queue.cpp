@@ -22,11 +22,13 @@ class Queue{
             void display();
 };
 
+//To perform enqueue operation
 template <class t>
 void Queue<t>::add(t ele){
     a[++rear]=ele;
 }
 
+//To perform dequeue operation
 template <class t>
 void Queue<t>::del(){
     if(rear==-1)
@@ -39,6 +41,8 @@ void Queue<t>::del(){
         cout<<"\nElement deleted from the queue is: "<<ele;
     }
 }
+
+//To display the contents of the queue
 template <class t>
 void Queue<t>::display(){
     cout<<"\nContents of the queue are: ";

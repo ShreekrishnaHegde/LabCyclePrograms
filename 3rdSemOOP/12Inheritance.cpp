@@ -11,26 +11,55 @@ number 1.Invoke the print() function for this object.
 #include <iostream>
 using namespace std;
 class Publication{
-
+    protected:
+                string title;
+    public:
+                Publication(string title){
+                    this->title=title;
+                }
+                virtual void print(){
+                    cout<<"Title: "<<title<<endl;
+                }
 };
 
 class Book: public Publication{
-    private:
+    protected:
             int acc_no;
+    public:
+            Book(string title,int acc_no):Publication(title),acc_no(acc_no){};
+            void print() override{
+                Publication::print();
+                cout<<"\nAccession Number: "<<acc_no;
+            }
+
 };
 
 class Magazine: public Publication{
-    private:
+    protected:
             int vol_number;
+    public:
+            Magazine(string title,int vol_no):Publication(title),vol_number(vol_number){}; 
+            void print() override{
+                Publication::print();
+                cout<<"\nVolume Number: "<<vol_number;
+            }
 };
 
 class Journal: public Book, public Magazine{
+
+    public:
+            Journal(string t,int a,int v):Book(t,a),Magazine(t,v){};
+            void print() override{
+                Book::print();
+                Magazine::print();
+            }
 
 };
 
 
 int main(){
 
-
+    Journal IEEEOOP("IEEEOOP", 681.3, 1); 
+    IEEEOOP.print();
     return 0;
 }

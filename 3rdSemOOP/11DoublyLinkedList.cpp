@@ -46,8 +46,11 @@ void DLL::insertNode(int data,int pos){
     if(pos==1){
         newNode->llink=NULL;
         newNode->rlink=first;
-        first->llink=newNode;
+        if(first!=NULL)
+            first->llink=newNode;
         first=newNode;
+        if(last==NULL)
+            last=newNode;
     }
     else if(pos==count+1){
         newNode->rlink=NULL;
@@ -58,24 +61,22 @@ void DLL::insertNode(int data,int pos){
     else{
         Node* temp=first;
         int i=1;
-        for(int i=1;i<=count;i++){
-            if(i==pos){
-                Node* prev=temp->llink;
-                newNode->llink=prev;
-                prev->rlink=newNode;
-                newNode->rlink=temp;
-                temp->llink=newNode;
-            }
+        for(int i=1;i<pos-1 && temp!=NULL;i++){
             temp=temp->rlink;
         }
+        newNode->rlink=temp->rlink; 
+        newNode->llink=temp; 
+        if(temp->rlink != NULL){ 
+            temp->rlink->llink = newNode; 
+        } 
+        temp->rlink = newNode;
     }
     count++;
     cout<<"\n"<<data<<" has been successfully inserted at position "<<pos;
 }
 
 void DLL::deleteNode(int pos){
-    int data;
-    Node* temp;
+    
     if(first==NULL){
         cout<<"\nList is already empty!";
         return;
@@ -84,10 +85,19 @@ void DLL::deleteNode(int pos){
         cout<<"\nInvalid Position.";
         return;
     }
-    else if(pos==1 && first==last){
+    int data;
+    Node* temp=first;
+    if(pos==1){
         data=first->data;
-        delete first;
-        first=last=NULL;
+        if(first==last){
+            delete first;
+            first=last=NULL;
+        }
+        else{
+            first=first->rlink;
+            first->llink=NULL;
+            delete temp;
+        }
     }
     else if(pos==count){
         temp=last;
@@ -96,28 +106,24 @@ void DLL::deleteNode(int pos){
         data=temp->data;
         delete temp;
     }
-    else if(pos==1){
-        temp=first;
-        first=temp->rlink;
-        data=temp->data;
-        first->llink=NULL;
-        delete temp;
+    else if(pos==1 && first==last){
+        data=first->data;
+        delete first;
+        first=last=NULL;
     }
+    
     else{
-        int i=1;
-        for(int i=1;i<=count;i++){
-            if(i==pos){
-                Node* prev=temp->llink;
-                data=temp->data;
-                prev->rlink=temp->rlink;
-                Node* next=temp->rlink;
-                next->llink=prev;
-                delete temp;
-            }
+        for(int i=1;i<pos && temp!=NULL;i++){
             temp=temp->rlink;
         }
+        data=temp->data;
+        Node* prev=temp->llink;
+        Node* next=temp->rlink;
+        prev->rlink=next;
+        next->llink=prev;
+        delete temp;
     }
-    cout<<"Data "<<data<<" has been successfully deleted from position "<<pos;
+    cout<<"\nData "<<data<<" has been successfully deleted from position "<<pos;
     count--;
     return;
 }
@@ -134,6 +140,7 @@ void DLL::display(){
             cout<<temp->data<<"-->";
             temp=temp->rlink;
         }
+        cout<<"NULL";
     }
 }
 

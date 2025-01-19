@@ -24,6 +24,7 @@ class Octal{
 
 Octal::Octal(int x){
     int i=0,rem,a[15];
+    //To convert the Decimal to Octal Represerntaion and result will be in reverse order
     while(x!=0){
         rem=x%8;
         a[i++]=rem;
@@ -31,14 +32,17 @@ Octal::Octal(int x){
     }
     count=i;
     int n=count-1;
+    //Reversing array to get Octal Representation
     for(int i=0;i<count;i++){
         oct[i]=a[n];
         n--;
     }
 }
 
+//To add Octal number to decimal number k
 int Octal::operator+(int k){
     int x=0,j=count-1;
+    //Converting Octal to Decimal Number
     for(int i=0;i<count;i++){
         x=x+oct[j]*pow(8,i);
         j--;
@@ -46,6 +50,7 @@ int Octal::operator+(int k){
     return x+k;
 }
 
+//To print the Octal number
 ostream& operator<<(ostream& print,Octal O){
     for(int i=0;i<O.count;i++)
         print<<O.oct[i];
