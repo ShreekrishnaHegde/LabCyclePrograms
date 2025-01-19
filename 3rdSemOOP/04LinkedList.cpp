@@ -8,7 +8,6 @@ Demonstrate all the functions after creating a list object.
 #include <iostream>
 using namespace std;
 
-//Node class
 class Node{
     public:
         int value;
@@ -29,8 +28,6 @@ class LinkedList{
         void insertFirst(int);
         void deleteFirst();
         void display();
-
-        
 };
 /*
 to insert an element into the list at first position
@@ -64,7 +61,13 @@ void LinkedList::deleteFirst(){
     cout<<"\nThe deleted element is: "<<temp->value;
     delete temp;
 }
-//to display the content of the list
+/*
+to display the content of the list
+->Initialize a pointer temp to the head of the list.
+->if temp is null print list is empty.
+->else Use a while loop to iterate through the list until the current pointer reaches NULL.
+->Inside the loop, print the data of the current node and move the current pointer to the next node
+*/
 void LinkedList:: display(){
     Node* temp=head;
     if(temp==NULL){

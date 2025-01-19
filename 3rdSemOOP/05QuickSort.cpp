@@ -14,7 +14,7 @@ void quick(T nums[],int l,int h){
         int m=start+(end-start)/2;
         T pivot=nums[m];
         while (start<=end){
-            //if the array is sorted it ll not swap.
+            //if the array is sorted it'll not swap.
             while(nums[start]<pivot)
                 start++;
             while (nums[end]>pivot)
@@ -84,7 +84,7 @@ Best case
 Complexity:T(N/2)+T(N/2)+O(N)
 O(NlogN)
 --------------------------------------------------
-->Not stable
+->Not stable 
 ->In place sorting algorithm
 */
 

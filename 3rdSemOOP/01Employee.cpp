@@ -53,6 +53,7 @@ void Employee::compute_salary(int Employee_basic){
     Employee_It=0.3*(Employee_basic+Employee_Da);
     Employee_Net_Salary=Employee_basic+Employee_Da-Employee_It;
 }
+
 int main(){
     //To store number of employees
     int n;
@@ -60,10 +61,12 @@ int main(){
     Employee employee[10];
     cout<<"\nEnter the number of employees: ";
     cin>>n;
+    //Reading the employees data
     for(int i=0;i<n;i++){
         cout<<"\n\tEnter the details of employee "<<i+1<<endl;
         employee[i].read();
     }
+    //Displaying employees data
     for (int i = 0; i < n; i++){
         cout<<"\n\tEmployee "<<i+1<<" details"<<endl;
         employee[i].display();

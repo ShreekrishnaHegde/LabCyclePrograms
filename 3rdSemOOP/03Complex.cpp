@@ -17,6 +17,7 @@ class Complex{
             friend ostream& operator<<(ostream&,Complex&);
             
 };
+//to read the complex number
 void Complex::read(){
     cin>>real;
     cin>>img;
@@ -24,7 +25,7 @@ void Complex::read(){
 //Function to add two Complex numbers
 Complex add(Complex s1,Complex s2){
     Complex result;
-    result.real=s1.real+s1.img;
+    result.real=s1.real+s2.real;
     result.img=s1.img+s2.img;
     return result;
 }
@@ -35,7 +36,7 @@ Complex add(int a,Complex s2){
     result.img=s2.img;
     return result;
 }
-//Function to display the complex number
+//Function to display the complex number by overloading the operator <<
 ostream& operator<<(ostream& print,Complex& c){
     print<<"\n"<<c.real<<" + "<<c.img<<" i";
     return print;
@@ -55,7 +56,7 @@ int main(){
     cout<<"\ns1 is: "<<s1;
     cout<<"\ns2 is: "<<s2;
     cout<<"\nInteger a is: "<<a;
-    cout<<"\nSum of s1 and a: "<<r1;
+    cout<<"\nSum of s2 and a: "<<r1;
     cout<<"\nSum of s1 and s2: "<<r2;
     return 0;
 }

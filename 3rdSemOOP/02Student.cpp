@@ -7,8 +7,8 @@ the students.
 */
 #include <iostream>
 using namespace std;
-#define MAX 10
-#define N 3
+#define MAX 10 //to count the number of students
+#define N 3    //Total number of tests
 class Student{
     private:
         string usn;
@@ -19,7 +19,8 @@ class Student{
         float findAvg();
         void displayAll();
 };
-//to fine the average marks
+
+//to find the average marks
 float Student::findAvg(){
     int sum=0;
     int min=marks[0];
@@ -46,6 +47,7 @@ void Student::displayAll(){
     cout<<"\nStudent USN : "<<usn;
     cout<<"\nAverge Marks: "<<findAvg()<<endl;
 }
+
 int main(){
     Student student[MAX];
     int n;
