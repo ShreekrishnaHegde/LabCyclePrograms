@@ -49,6 +49,11 @@ void main(){
     display(&pSum);
 }
 
+/*
+->Create a new pointer of Node type and allocate memory using malloc function
+->Initialize all the members.
+->return the pointer.
+*/
 Node* createNode(int coef,int x,int y,int z){
     Node* newNode=(Node* )malloc(sizeof(Node));
     newNode->coef=coef;
@@ -60,17 +65,22 @@ Node* createNode(int coef,int x,int y,int z){
     return newNode;
 }
 
+
 void display(Node **head){
     if(*head==NULL)
         return;
     Node* temp=*head;
+    //Iterate through all the nodes and print the date
     do{
         printf("%dx^%dy^%dz^%d ",temp->coef,temp->x,temp->y,temp->z);
         temp=temp->next;
     }
+    //Since it is circular linked list,you have to check the below condition.
     while(temp!=*head);
     printf("\n");
 }
+
+
 void insertLast(Node** head,int coef,int x,int y,int z){
     Node* newNode=createNode(coef,x,y,z);
     if(*head==NULL)
