@@ -24,6 +24,7 @@ class Date {
         friend ostream& operator<<(ostream &print, Date &d);
 };
 
+
 int b[13] = {0,31,29,31,30,31,30,31,31,30,31,30,31};
 int a[13] = {0,31,28,31,30,31,30,31,31,30,31,30,31};
 
@@ -32,6 +33,7 @@ ostream& operator<<(ostream &print, Date &d) {
     print << d.dd << "/" << d.mm << "/" << d.yy;
     return print;
 }
+
 
 //To determine whether given year is leap year or not
 bool isLeapYear(int year) {

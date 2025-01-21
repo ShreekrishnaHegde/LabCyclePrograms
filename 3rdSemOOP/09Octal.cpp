@@ -30,6 +30,7 @@ Octal::Octal(int x){
         a[i++]=rem;
         x/=8;
     }
+    
     count=i;
     int n=count-1;
     //Reversing array to get Octal Representation

@@ -14,27 +14,24 @@ class Publication{
     protected:
                 string title;
     public:
-                Publication(string title){
-                    this->title=title;
-                }
+                Publication(string title):title(title){}
                 virtual void print(){
                     cout<<"Title: "<<title<<endl;
                 }
 };
 
-class Book: public Publication{
+class Book: virtual public Publication{
     protected:
-            int acc_no;
+            float acc_no;
     public:
-            Book(string title,int acc_no):Publication(title),acc_no(acc_no){};
+            Book(string title,float acc_no):Publication(title),acc_no(acc_no){};
             void print() override{
                 Publication::print();
                 cout<<"\nAccession Number: "<<acc_no<<endl;
             }
-
 };
 
-class Magazine: public Publication{
+class Magazine: virtual public Publication{
     protected:
             int vol_number;
     public:
@@ -48,7 +45,7 @@ class Magazine: public Publication{
 class Journal: public Book, public Magazine{
 
     public:
-            Journal(string t,int a,int v):Book(t,a),Magazine(t,v){};
+            Journal(string t,float a,int v):Publication(t),Book(t,a),Magazine(t,v){};
             void print() override{
                 Book::print();
                 Magazine::print();
