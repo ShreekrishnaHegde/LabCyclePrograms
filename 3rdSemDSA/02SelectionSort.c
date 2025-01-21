@@ -26,6 +26,7 @@ void printArray(int n,int a[]){
     for(int i=0;i<n;i++)
         printf("%d ",a[i]);
 }
+
 void selectionSort(int n,int a[]){
     for(int i=0;i<n-1;i++){
         int last=n-i-1;

@@ -18,10 +18,12 @@ void main(){
     for(int i=0;i<n;i++)
         scanf("%d",&a[i]);
     printf("\nArray Before Sorting: ");
-    for(int i=0;i<n;i++)
-        printf("%d ",a[i]);
+    printArray(n,a);
     InsertionSort(n,a);
-    printf("Array after sorting (Using Insertion Sort):");
+    printf("\nArray after sorting (Using Insertion Sort):");
+    printArray(n,a);
+}
+void printArray(int n,int a[]){
     for(int i=0;i<n;i++)
         printf("%d ",a[i]);
 }

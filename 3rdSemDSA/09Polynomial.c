@@ -70,7 +70,7 @@ void display(Node **head){
     if(*head==NULL)
         return;
     Node* temp=*head;
-    //Iterate through all the nodes and print the date
+    //Iterate through all the nodes and print the data
     do{
         printf("%dx^%dy^%dz^%d ",temp->coef,temp->x,temp->y,temp->z);
         temp=temp->next;

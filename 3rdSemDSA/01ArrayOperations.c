@@ -1,4 +1,12 @@
-//Program to show insertion and deletion operarion in 1D Array.
+/*
+Design, Develop and Implement a menu driven Program for the following array
+operations.
+a. Creating an array of N Integer Elements.
+b. Display array Elements with Suitable Headings.
+c. Inserting an Element (ELEM) at a given valid Position (POS).
+d. Deleting an Element at a given valid Position (POS).
+e. Exit. Support the program with functions for each of the above operations.
+*/
 #include <stdio.h>
 
 void insertion(int arr[],int n,int index,int value){
