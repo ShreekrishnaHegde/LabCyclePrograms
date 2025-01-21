@@ -94,6 +94,14 @@ void insertLast(Node** head,int coef,int x,int y,int z){
         newNode->next=*head;
     }
 }
+/*
+->Initialize the result to 0
+->If head is pointing to NULL return.abort
+->Create a temporary pointer and assign the value of head to the temporary pointer
+->Iterate through each node(each node represents a term of polynomial)
+    compute the result by placing corresponding values of variables as passed in the arguments.
+->Print the value of of the result.
+*/
 void evalulate(Node* head,int x,int y,int z){
     if(head==NULL)
         return;
@@ -106,6 +114,18 @@ void evalulate(Node* head,int x,int y,int z){
     while(temp!=head);
     printf("\nEvaluation: %d",result);
 }
+/*
+->Decalre and initialze pSum pointer to NULL to store the resulting polynomial.
+->Decalre temp1 and temp2 to store polynomial 1 and polynomial 2.
+->Iterate through each node in p1
+    Check if a node with the same degree already exists in pSum (using isSameDegree function).
+        If it does, add their coefficients together.
+        If it doesn't, add the current node to pSum.
+->Iterate through each node in p2
+    Check if a node with the same degree already exists in pSum (using isSameDegree function).
+        If it does, add their coefficients together.
+        If it doesn't, add the current node to pSum.
+*/
 Node* add(Node* p1,Node* p2){
     Node* pSum=NULL;
     Node* temp1=p1;
@@ -130,7 +150,14 @@ Node* add(Node* p1,Node* p2){
     while(temp2!=p2);
     return pSum;
 }
-
+/*
+->if head is pointing to NULL, return
+->Else create a temporary varibale to which points to same address as head
+->Iterate though the each node of the list
+    check whether current node has same degree as that of one passed in argument.
+        If so return that node
+->Otherwise return NULL.
+*/
 Node* isSameDegree(Node* head,int x,int y,int z){
     if(head==NULL)
         return NULL;
