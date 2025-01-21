@@ -152,11 +152,11 @@ Node* add(Node* p1,Node* p2){
 }
 /*
 ->if head is pointing to NULL, return
-->Else create a temporary varibale to which points to same address as head
+->Else create a temporary varibale to which points to same address as head.
 ->Iterate though the each node of the list
-    check whether current node has same degree as that of one passed in argument.
-        If so return that node
-->Otherwise return NULL.
+    Check if the current node has the same degrees as the ones passed in the arguments (x,y,z).
+        If so return the current node
+->If no match is found, return NULL.
 */
 Node* isSameDegree(Node* head,int x,int y,int z){
     if(head==NULL)
