@@ -49,12 +49,12 @@ void main(){
             case 1:
                 printf("\nEnter the index and the element for insertion: ");
                 scanf("%d%d",&pos,&value);
-                insertion(arr,n,pos,value);
+                insertion(arr,n++,pos,value);
                 break;
             case 2:
                 printf("\nEnter the index: ");
                 scanf("%d",&pos);
-                deletion(arr,n,pos);
+                deletion(arr,n--,pos);
                 break;
             default:
                 printf("Invalid Choice");
