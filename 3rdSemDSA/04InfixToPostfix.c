@@ -11,12 +11,13 @@ operands.
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+
 int precedence(char operator);
 bool isOperator(char ch);
 void convert(int n,char infix[]);
 
 void main(){
-    char infix[20];
+    char infix[100];
     printf("\nEnter an infix expression: ");
     scanf("%s",infix);
     int n=strlen(infix);
@@ -24,7 +25,7 @@ void main(){
 }
 /*Function to convert infix expresion to postfix expression*/
 void convert(int n,char infix[]){
-    char stack[20],postfix[20];
+    char stack[100],postfix[100];
     int top=-1,j=0;
     for(int i=0;i<n;i++){
         char c=infix[i];
@@ -58,7 +59,7 @@ void convert(int n,char infix[]){
 
 /*Below Function returns true if the passed argument is a operator, otherwise it returns false*/
 bool isOperator(char ch){
-    if(ch=='+' || ch=='-' || ch=='*' || ch=='/' || ch=='^')
+    if(ch=='+' || ch=='-' || ch=='*' || ch=='/' || ch=='^' || ch=='%')
         return true;
     return false;
 }
@@ -70,6 +71,7 @@ int precedence(char operator){
                 return 1;
         case '*':
         case '/':
+        case '%':
                 return 2;
         case '^':
                 return 3;

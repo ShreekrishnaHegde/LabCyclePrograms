@@ -21,3 +21,4 @@ void main(){
     scanf("%d",&n);
     move(n,'A','C','B');
 }
+
