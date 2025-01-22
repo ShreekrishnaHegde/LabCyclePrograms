@@ -111,8 +111,10 @@ void printPreOrder(Node* node){
 Node* search(Node* node,int key){
     if(node==NULL || node->data==key)
         return node;
-    search(node->right,key);
-    search(node->left,key);
+    if(node->data<key)
+        search(node->right,key);
+    if(node->data>key)
+        search(node->left,key);
 }
 /*
     ->If the tree is empty, return a new node
