@@ -15,10 +15,6 @@ e. Exit Support the program with appropriate functionsfor each ofthe above opera
 #define MAX 5
 
 int front=-1,rear=-1,queue[MAX];
-struct Node{
-    int data;
-    struct Node* next;
-}Node;
 
 int isFull();
 int isEmpty();

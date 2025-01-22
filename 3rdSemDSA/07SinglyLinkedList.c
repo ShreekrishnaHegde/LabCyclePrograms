@@ -21,7 +21,6 @@ Node* createNode(int data){
     newNode->next=NULL;
     return newNode;
 }
-
 Node* insertFront(Node* head,int data){
     Node* newNode=createNode(data);
     if(head==NULL){
