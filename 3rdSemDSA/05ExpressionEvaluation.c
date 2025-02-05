@@ -30,7 +30,15 @@ void main(){
     printf("%f",evaluate(size,exp));
 }
 
-//This function evaluates the given expression
+/*
+----------------------Algorithm for evaluating suffix expression----------------------
+1. For each character in the expression:
+    a. If the character is an operand, 
+        push it onto the stack.
+    b. If the character is an operator, 
+        pop two elements from the stack and perform the operation.
+2. The result of the expression is the element left in the stack.
+*/
 float evaluate(int n,char exp[]){
     float x,y;
     for(int i=0;i<n;i++){
@@ -69,6 +77,7 @@ float pop(){
     float temp=stack[top--];
     return temp;
 }
+
 //Below function returns whether the argument is an operator or not.
 bool isOperator(char c){
     if(c=='+' || c=='-' ||c=='*' || c=='/' || c=='^')

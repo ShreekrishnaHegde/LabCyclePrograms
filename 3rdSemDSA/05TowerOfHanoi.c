@@ -7,6 +7,7 @@ b. Solving Tower of Hanoi problem with n disks.
 
 
 #include <stdio.h>
+
 void move(int n,char from_rod,char to_rod,char via_rod){
     if(n==0)
         return;
