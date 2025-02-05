@@ -86,6 +86,7 @@ void deleteLast(Node** head){
     }
 }
 void display(Node* head){
+    int count=0;
     if(head==NULL){
         printf("List is Empty\n");
     }
@@ -93,11 +94,14 @@ void display(Node* head){
         Node* temp=head;
         while(temp!=NULL){
             printf("%d %s %s %s %s\n",temp->sem,temp->usn,temp->name,temp->branch,temp->phNo);
+            count++;
             temp=temp->next;
         }
+        printf("Number of Nodes:%d\n",count);
         printf("\n");
     }
 }
+
 void main(){
     Node* head=NULL;
     int choice,data;
