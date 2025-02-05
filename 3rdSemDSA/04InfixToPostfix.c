@@ -23,7 +23,25 @@ void main(){
     int n=strlen(infix);
     convert(n,infix);
 }
-/*Function to convert infix expresion to postfix expression*/
+
+/*
+--------------------Algorithm for converting infix to postfix--------------------
+1. Create a stack and a result string.
+2. For each character in the infix expression string:
+    a. If the character is an operand, 
+        append it to the result string.
+    b. If the character is an opening parenthesis, 
+        push it onto the stack.
+    c. If the character is a closing parenthesis, 
+        pop all the elements from the stack and append them to the result string until 
+        an opening parenthesis is encountered.Then pop the opening parenthesis from the stack.
+    d. If the character is an operator, 
+        pop all the elements from the stack and append them to the result string until 
+        an operator with lower precedence is encountered.Then Push the current operator onto the stack.
+3. Pop all the remaining elements from the stack and append them to the result string.
+4. The result string is the postfix expression.
+--------------------------------------------------------------------------------
+*/
 void convert(int n,char infix[]){
     char stack[100],postfix[100];
     int top=-1,j=0;
@@ -57,13 +75,23 @@ void convert(int n,char infix[]){
 }
 
 
-/*Below Function returns true if the passed argument is a operator, otherwise it returns false*/
+/*
+Below Function returns true if the passed argument is a operator, otherwise it returns false
+*/
 bool isOperator(char ch){
     if(ch=='+' || ch=='-' || ch=='*' || ch=='/' || ch=='^' || ch=='%')
         return true;
     return false;
 }
-/*Function to return the precedence of the operator.Priority increases with increase in return value.*/
+
+/*
+----------------------Algorithm for precedence of operators----------------------
+(Priority increases with increase in return value)
+1. If the operator is + or -, return 1.
+2. If the operator is * or / or %, return 2.
+3. If the operator is ^, return 3.
+4. If the operator is not any of the above, return -1.
+*/
 int precedence(char operator){
     switch(operator){
         case '+':

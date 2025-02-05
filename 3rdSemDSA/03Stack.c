@@ -18,7 +18,6 @@ f. Exit Supportthe programwith appropriate functionsfor each ofthe above operati
 
 int stack[MAX],n,top=-1;
 
-//Palidrome
 bool isPalindrome();
 void display();
 void pop();
@@ -54,7 +53,20 @@ int main(){
     while(ch!=5);
     return 0;
 }
+/*
+-----------------Algorithm to check if the stack is palindrome-------------------------
+1. Check if the stack is empty
+    If empty, 
+        return false
+2. Create a temporary stack and a temporary top
+3. Push all the elements of the stack to the temporary stack
+4. Compare the elements of the stack and the temporary stack
+    If they are equal, 
+        return true
+    Else, 
+        return false
 
+*/
 bool isPalindrome(){
     if(isEmpty())
         return false;
@@ -70,7 +82,18 @@ bool isPalindrome(){
     }
     return true;
 }
-//To display the status of the stack
+/*
+--------------------------Algorithm for display()-------------------------------------
+1. Check if the stack is empty
+    If empty, 
+    print "The Stack is empty"
+3. Else,
+    Check if the stack is full
+    If full, 
+        print "The Stack is full"
+4. Else,
+        print the stack elements
+*/
 void display(){
         if(isEmpty())
             printf("\n The Stack is empty!");
@@ -83,14 +106,29 @@ void display(){
             printf("\n");
         }
 }
-//To delete an elment from the stack
+/*
+--------------------------Algorithm for pop()-------------------------------------
+1. Check if the stack is empty
+2. If empty, 
+    print "Stack is Empty"
+3. Else, 
+    print the popped element and decrement the top
+*/
 void pop(){        
     if(isEmpty())
         printf("\n Stack is Empty");
     else
         printf("\nThe popped element is %d",stack[top--]);
 }
-//To insert an element into the stack
+/*
+---------------------------Algorithm for push()-------------------------------------
+1. Check if the stack is full
+2. If full, 
+    print "Stack is Full"
+3. Else,
+    increment the top and push the element into the stack
+    print the pushed element
+*/
 void push(int ele){
     if(isFull())
         printf("\nStack is Full");
@@ -99,9 +137,25 @@ void push(int ele){
         printf("\nElement pushed is: %d",ele);
     }
 }
+/*
+-----------------------Algorithm for isFull()--------------------------------------
+1. Check if the top is equal to MAX-1
+If true, 
+    return true
+3. Else, 
+    return false
+*/
 bool isFull(){
     return top>=MAX-1;
 }
+/*
+-----------------------------Algorithm for isEmpty()--------------------------------
+1. Check if the top is equal to -1
+If true, 
+    return true
+3. Else,
+    return false
+*/
 bool isEmpty(){
     return top==-1;
 }
