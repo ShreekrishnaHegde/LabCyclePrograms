@@ -20,6 +20,13 @@ typedef struct Node{
     struct Node* next;
 }Node;
 
+/*
+------------------------Algorithm to create new Node------------------------
+1. Create a new Node
+2. Read the data and initialize all the fields accordingly.
+3. Initialize next pointer to NULL
+4. Return the new Node
+*/
 Node* createNode(){
     Node* newNode=(Node*)malloc(sizeof(Node));
     printf("\nEnter USN:");
@@ -35,6 +42,14 @@ Node* createNode(){
     newNode->next=NULL;
     return newNode;
 }
+/*
+------------------------------------Algorithm to insert a new Node at the beginning------------------------------------
+1.create a new Node
+2.if head is NULL, assign the new Node to head
+3.else,
+    assign the next of new Node to head
+    update head to new Node
+*/
 void insertFirst(Node** head){
     Node* newNode=createNode();
     if(*head==NULL){
@@ -45,6 +60,15 @@ void insertFirst(Node** head){
         *head=newNode;
     }
 }
+/*
+-------------------------------------Algorithm to insert a new Node at the end-------------------------------------
+1.create a new Node
+2.if head is NULL, assign the new Node to head
+3.else,
+    assign temp to head
+    iterate through the list till the last Node and assign temp to the last Node.
+    assign the next of temp to new Node
+*/
 void insertLast(Node** head){
     Node* newNode=createNode();
     if(*head==NULL){

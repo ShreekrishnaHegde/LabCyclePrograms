@@ -22,7 +22,13 @@ typedef struct Node{
     struct Node* prev;
     struct Node* next;
 }Node;
-
+/*
+----------------------Algorithm to create new Node----------------------
+1. Create a new Node
+2. Read the data and initialize all the fields accordingly.
+3. Initialize prev and next pointers to NULL
+4. Return the new Node
+*/
 Node* createNode(){
     Node* newNode=(Node*)malloc(sizeof(Node));
     printf("\nEnter SSN:");
@@ -41,7 +47,14 @@ Node* createNode(){
     newNode->next=NULL;
     return newNode;
 }
-
+/*
+------------------Algorithm to insert a new Node at the beginning------------------
+1.create a new Node
+2.if head is NULL, assign the new Node to head
+3.else,
+    assign the next of new Node to head and prev of head to new Node
+    assign head to new Node
+*/
 void insertFirst(Node** head){
     Node* newNode=createNode();
     if(*head==NULL){
@@ -53,6 +66,15 @@ void insertFirst(Node** head){
         *head=newNode;
     }
 }
+/*
+-------------------Algorithm to insert a new Node at the end-------------------
+1. Create a new Node
+2. if head is NULL, assign the new Node to head
+3. else,
+    assign temp to head
+    iterate through the list till the last Node and assign temp to the last Node.
+    assign the next of temp to new Node and prev of new Node to temp
+*/
 void insertLast(Node** head){
     Node* newNode=createNode();
     if(*head==NULL){
@@ -67,6 +89,16 @@ void insertLast(Node** head){
         newNode->prev=temp;
     }
 }
+/*
+----------------------------Algorithm to delete the first Node----------------------------
+1. if head is NULL, print "List is Empty"
+2. else if head->next is NULL (means there is only one node), free head and assign NULL to head
+3. else,
+    assign temp to head
+    update head to head->next.
+    free temp.
+    assign NULL to prev of head
+*/
 void deleteFirst(Node** head){
     if(*head==NULL){
         printf("List is Empty\n");
@@ -82,6 +114,16 @@ void deleteFirst(Node** head){
         (*head)->prev=NULL;
     }
 }
+/*
+----------------------------Algorithm to delete the last Node----------------------------
+1. if head is NULL, print "List is Empty"
+2. else if head->next is NULL (means there is only one node), free head and assign NULL to head
+3. else,
+    assign temp to head
+    iterate through the list till the last Node and assign temp to the last Node.
+    free temp.
+    assign NULL to next of prev of temp
+*/
 void deleteLast(Node** head){
     if(*head==NULL){
         printf("List is Empty\n");
@@ -99,6 +141,15 @@ void deleteLast(Node** head){
         free(temp);
     }
 }
+/*
+----------------------------Algorithm to display the list----------------------------
+1. if head is NULL, print "List is Empty"
+2. else,
+    assign temp to head
+    iterate through the list till the last Node and print the data of each Node.
+    increment count for each Node.
+    print the number of nodes.
+*/
 void display(Node* head){
     int count=0;
     if(head==NULL){
