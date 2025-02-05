@@ -52,8 +52,8 @@ Node* createNode(){
 1.create a new Node
 2.if head is NULL, assign the new Node to head
 3.else,
-    assign the next of new Node to head and prev of head to new Node
-    assign head to new Node
+    assign head to the next of new Node and new Node to the prev of head.
+    assign new Node to head
 */
 void insertFirst(Node** head){
     Node* newNode=createNode();
@@ -71,9 +71,9 @@ void insertFirst(Node** head){
 1. Create a new Node
 2. if head is NULL, assign the new Node to head
 3. else,
-    assign temp to head
-    iterate through the list till the last Node and assign temp to the last Node.
-    assign the next of temp to new Node and prev of new Node to temp
+    assign head to temp
+    iterate through the list till the last Node and assign last Node to temp.
+    assign the newNode to next of temp and temp to prev of newNode.
 */
 void insertLast(Node** head){
     Node* newNode=createNode();
@@ -94,10 +94,10 @@ void insertLast(Node** head){
 1. if head is NULL, print "List is Empty"
 2. else if head->next is NULL (means there is only one node), free head and assign NULL to head
 3. else,
-    assign temp to head
+    assign head to temp
     update head to head->next.
     free temp.
-    assign NULL to prev of head
+    assign NULL to prev of head.
 */
 void deleteFirst(Node** head){
     if(*head==NULL){
@@ -119,8 +119,8 @@ void deleteFirst(Node** head){
 1. if head is NULL, print "List is Empty"
 2. else if head->next is NULL (means there is only one node), free head and assign NULL to head
 3. else,
-    assign temp to head
-    iterate through the list till the last Node and assign temp to the last Node.
+    assign head to temp
+    iterate through the list till the last Node and assign last node to temp.
     free temp.
     assign NULL to next of prev of temp
 */
@@ -145,7 +145,7 @@ void deleteLast(Node** head){
 ----------------------------Algorithm to display the list----------------------------
 1. if head is NULL, print "List is Empty"
 2. else,
-    assign temp to head
+    assign head to temp.
     iterate through the list till the last Node and print the data of each Node.
     increment count for each Node.
     print the number of nodes.

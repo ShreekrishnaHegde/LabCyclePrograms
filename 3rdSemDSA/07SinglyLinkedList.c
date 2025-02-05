@@ -47,8 +47,8 @@ Node* createNode(){
 1.create a new Node
 2.if head is NULL, assign the new Node to head
 3.else,
-    assign the next of new Node to head
-    update head to new Node
+    assign head to next of newNode and
+    update head to newNode
 */
 void insertFirst(Node** head){
     Node* newNode=createNode();
@@ -65,9 +65,9 @@ void insertFirst(Node** head){
 1.create a new Node
 2.if head is NULL, assign the new Node to head
 3.else,
-    assign temp to head
+    assign head to temp.
     iterate through the list till the last Node and assign temp to the last Node.
-    assign the next of temp to new Node
+    assign newNode to next of temp.
 */
 void insertLast(Node** head){
     Node* newNode=createNode();
@@ -82,6 +82,15 @@ void insertLast(Node** head){
         temp->next=newNode;
     }
 }
+/*
+-----------------------------------Algorithm to delete the first Node-----------------------------------
+1. if head is NULL, print "List is Empty"
+2. else if head->next is NULL (means there is only one node), free head and assign NULL to head
+3. else,
+    assign head to temp.
+    update head to head->next.
+    free temp.
+*/
 void deleteFirst(Node** head){
     if(*head==NULL){
         printf("List is Empty\n");
@@ -92,6 +101,16 @@ void deleteFirst(Node** head){
         free(temp);
     }
 }
+/*
+------------------------------------Algorithm to delete the last Node------------------------------------
+1. if head is NULL, print "List is Empty"
+2. else if head->next is NULL (means there is only one node), free head and assign NULL to head
+3. else,
+    assign head to temp.
+    iterate through the list till the last Node and assign lastnode to temp.
+    free temp.
+    assign NULL to next of prev of temp
+*/
 void deleteLast(Node** head){
     if(*head==NULL){
         printf("List is Empty\n");
@@ -109,6 +128,14 @@ void deleteLast(Node** head){
         temp->next=NULL;
     }
 }
+/*
+--------------------------Algorithm to display the list--------------------------
+1. if head is NULL, print "List is Empty"
+2. else,
+    assign head to temp.
+    iterate through the list till the last Node and print the data of each Node.
+    increment count for each Node.
+*/
 void display(Node* head){
     int count=0;
     if(head==NULL){
