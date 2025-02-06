@@ -30,10 +30,13 @@ class LinkedList{
         void display();
 };
 /*
-to insert an element into the list at first position
-->Make the first node of Linked List linked to the new node
-->Remove the head from the original first node of Linked List
-->Make the new node as the Head of the Linked List.
+------------------------------------Algorithm to insert the node at first pos---------------------------
+1. Create a new Node
+2. if head is NULL, 
+    assign the newNode to head
+3. else,
+    assign head to the next of newNode. 
+    assign newNode to head
 */
 void LinkedList:: insertFirst(int value){
     Node *newNode=new Node(value);
@@ -43,30 +46,37 @@ void LinkedList:: insertFirst(int value){
     }
     newNode->next=this->head;
     this->head=newNode;
-
 }
 /*
-to delete first elelement from the list.
-->store the current head in a temporary variable (temp)
-->move the head pointer to the next node
-->delete the temporary head node
+-----------------------------Algorithm to delete the first Node----------------------------
+1. if head is NULL, print "List is Empty"
+2. else if head->next is NULL (means there is only one node), 
+    free head and assign NULL to head
+3. else,
+    assign head to temp.
+    update head to head->next.
+    free temp.
 */
-void LinkedList::deleteFirst(){
+void LinkedList:: deleteFirst(){
     if(head==NULL){
-        cout<<"\nList is Empty" ;
+        cout<<"\nList is empty";
+        return;
+    }
+    else if(head->next==NULL){
+        delete head;
+        head=NULL;
         return;
     }
     Node* temp=head;
     head=head->next;
-    cout<<"\nThe deleted element is: "<<temp->value;
     delete temp;
 }
 /*
-to display the content of the list
-->Initialize a pointer temp to the head of the list.
-->if temp is null print list is empty.
-->else Use a while loop to iterate through the list until the current pointer reaches NULL.
-->Inside the loop, print the data of the current node and move the current pointer to the next node
+----------------------------------Algorithm to display the list----------------------------
+1. if head is NULL, print "List is Empty"
+2. else,
+    assign head to temp.
+    iterate through the list till the last Node and print the data of each Node.
 */
 void LinkedList:: display(){
     Node* temp=head;
