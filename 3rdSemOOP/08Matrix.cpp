@@ -35,7 +35,9 @@ class Matrix{
 
 };
 
-//To input the matrix elememts
+/*
+-----------------Method to read the elements of the matrix-----------------
+*/
 void Matrix::getMatrix(){
     for(int i=0;i<row;i++){
         for(int j=0;j<col;j++)
@@ -43,7 +45,9 @@ void Matrix::getMatrix(){
     }
 }
 
-//Overloading == operator two check whether two matrices have same order
+/*
+Overloading == operator two check whether two matrices have same order or not.
+*/
 int Matrix::operator==(Matrix m1){  
     if(m1.row==this->row && m1.col==this->col)
         return 1;
@@ -51,7 +55,9 @@ int Matrix::operator==(Matrix m1){
         return 0;
 }
 
-//Overloading + operator to add the corresponding elements of the matrix
+/*
+Overloading + operator to add the corresponding elements of the matrix and return the resultant matrix.
+*/
 Matrix Matrix::operator+(Matrix m1){
     Matrix m3(row,col);
     for(int i=0;i<row;i++){
@@ -60,7 +66,9 @@ Matrix Matrix::operator+(Matrix m1){
     }
     return m3;
 }
-//Overloading - operator to subtract the coressponding elements of the matrix
+/*
+Overloading - operator to subtract the coressponding elements of the matrix and return the resultant matrix.
+*/
 Matrix Matrix::operator-(Matrix m1){
     Matrix m4(row,col);
     for(int i=0;i<row;i++){
@@ -69,7 +77,9 @@ Matrix Matrix::operator-(Matrix m1){
     }
     return m4;
 }
-
+/*
+Overloading << operator to display the matrix.
+*/
 ostream& operator<<(ostream& print,Matrix &res){
     for(int i=0;i<res.row;i++){
         for(int j=0;j<res.col;j++)

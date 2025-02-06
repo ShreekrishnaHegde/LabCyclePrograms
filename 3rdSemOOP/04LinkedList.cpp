@@ -8,6 +8,7 @@ Demonstrate all the functions after creating a list object.
 #include <iostream>
 using namespace std;
 
+
 class Node{
     public:
         int value;
@@ -91,6 +92,7 @@ void LinkedList:: display(){
     }
     cout<<"NULL";
 }
+
 int main(){
     int choice,item;
     LinkedList list;
