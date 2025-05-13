@@ -20,7 +20,6 @@ class Stack{
                 top=-1;
                 size=n;
             }
-            void display();
             friend Stack operator+(Stack,int);
             friend Stack operator-(Stack);
             friend int isFull(Stack);
