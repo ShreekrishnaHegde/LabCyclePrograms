@@ -81,4 +81,6 @@ At each step, we try placing a queen in every column of the current row and
 proceed to the next row if the placement is safe. If not, we backtrack and try the next column.
 
 Recursive Realtion: T(N)= N*T(N-1) +O(n^2)
+SC : O(N^2) for board +O(N) for recursion
+TC: (N*)T(N-1)~N!
 */
