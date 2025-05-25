@@ -1,17 +1,13 @@
-#to print largest of three numbers
-
+#Write a shell script to perform arithmatic operations using expr and bc command
 #!/bin/bash
-echo -e "Enter three numbers: \c"
-read a b c
-if [[ $a -gt $b && $a -gt $c ]];
-then
-	echo "$a is the largest"
-elif [[ $b -gt $a && $b -gt $c ]];
-then
-	echo "$b is the largest"
-elif [[ $c -gt $a && $c -gt $b ]];
-then
-	echo "$c is the largest"
+echo -e "Enter two numbers: \c"
+read a b
+echo "$a + $b = `expr $a + $b`"
+echo "$a - $b = `expr $a - $b`"
+echo "$a x $b = `expr $a \* $b`"
+if [ $b -ne 0 ];then
+	echo "$a / $b = `expr $a / $b`"
+	echo "$a % $b = `expr $a % $b`"
 else
-	echo "Enter unique numbers"
+	echo "Denominator cannot be zero for division and modulus"
 fi

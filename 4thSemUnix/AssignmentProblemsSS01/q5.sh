@@ -1,8 +1,6 @@
-#To print the multiplication table of a number 
+#Write a shell script to display current username and home directory using environmental variables
 #!/bin/bash
-echo -e "Enter a number: \c"
-read n
-for((i=1;i<=10;i++))
-do
-	echo "$n x $i = $((n*i))"
-done
+echo "Current user is: $USER"
+echo "Home directory is: $HOME"
+
+

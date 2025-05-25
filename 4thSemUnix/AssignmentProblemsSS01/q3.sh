@@ -1,16 +1,28 @@
-#To calculate the factorial of a number
+#Write a shell script to check whether give file is readable, writable and executable.
 #!/bin/bash
-result=1
-echo -e "Enter a number: \c"
-read n
-if [ $n -eq 0 ]
+echo -e "Enter the name of the file: \c"
+read fileName
+if [ ! -e $fileName ]
 then
-	echo "Factorial of $n is 0"
-else
-	for((i=1;i<=n;i++))
-	do
-        	result=$((result*i))
-	done
-	echo "Factorial of $n is $result"
+	echo "File doesn't exists"
+	exit 1
 fi
 
+if [ -r $fileName ]
+then
+	echo "File is readble"
+else
+	echo "File is not readable"
+fi
+if [ -w $fileName ]
+then
+	echo "File is writable"
+else
+	echo"File is not writable"
+fi
+if [ -x $fileName ]
+then
+	echo "File is executable"
+else
+	echo "File is not executable"
+fi

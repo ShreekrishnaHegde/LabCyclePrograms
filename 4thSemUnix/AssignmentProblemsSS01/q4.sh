@@ -1,19 +1,12 @@
-#To check if given string is palindrome or not
+#Write a shell script to read a filename from use and display its content.
 #!/bin/bash
-
-echo -e "Enter a string: \c"
-read str
-reverse=""
-len=${#str}
-
-for (( i=$len-1;i>=0;i-- ))
-do
-  reverse=$reverse${str:$i:1}
-done
-echo "$reverse"
-if [[ $reverse == $str ]]
+echo -e "Enter the name of the file: \c"
+read fileName
+if [ ! -e $fileName ]
 then
-        echo "The String $str is a palindrome"
-else
-        echo "The String $str is not a palindrome"
+	echo "File doesn't exists"
+	exit 1
 fi
+echo "Contents of file $fileName :"
+cat $fileName
+
