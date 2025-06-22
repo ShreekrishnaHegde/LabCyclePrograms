@@ -6,9 +6,9 @@ file="item.txt"
 while true;
 do
 	echo -e "Enter the Item Name: \c"
-	read code
-	echo -e "Enter the Item Code: \c"
 	read name
+	echo -e "Enter the Item Code: \c"
+	read code
 	echo -e "$code - $name">>"$file"
 	echo "Item added to the $file"
 
