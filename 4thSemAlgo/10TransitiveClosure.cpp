@@ -7,7 +7,6 @@ b. Compute the transitive closure of a given directed graph using Warshall’s a
 #include <vector>
 using namespace std;
 void fun(vector<vector<int>>& mat);
-const int INF = INT_MAX; 
 
 int main(){
     int V=4;
@@ -40,16 +39,15 @@ void fun(vector<vector<int>>& mat){
 Algorithm:
 1)Initialization:
 For vertices i and j:
-    If i == j, then mat[i][j] = 0
-    If there is a direct edge from i to j, mat[i][j] = weight
-    If no edge exists, mat[i][j] = INF
+    If there is a direct edge from i to j, mat[i][j] = 1
+    If no edge exists, mat[i][j] = 0
 2)For each intermediate vertex k from 0 to V - 1:
     For each source vertex i from 0 to V - 1:
         For each destination vertex j from 0 to V - 1:
-            If mat[i][k] != INF and mat[k][j] != INF,
-                mat[i][j] = min(mat[i][j], mat[i][k] + mat[k][j])
+            If mat[i][k] = 1 and mat[k][j] =1,
+                mat[i][j] = 1
 
-3)Print the mat.If mat[i][j] == INF, then there is no path from i to j.
+3)Print the mat.If mat[i][j] = 1, then there is a path from i to j.
 
 Time Complexity: O(V^3)
 Auxiliary Space: O(1)
