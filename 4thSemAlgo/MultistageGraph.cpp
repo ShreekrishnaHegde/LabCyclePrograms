@@ -43,7 +43,7 @@ int shortestDistance(vector<vector<int>> graph){
         // Check all nodes of next stages
         // to find shortest distance from
         // i to N-1.
-        for(int j=1;j<n;j++){
+        for(int j=i;j<n;j++){
             // Reject if no edge exists
             if (graph[i][j] == INF)
                 continue;
@@ -64,7 +64,7 @@ int shortestDistance(vector<vector<int>> graph){
 2)Compute shortest distances in reverse (from n−2 to 0):
     For i from n−2 down to 0:
         Set distance[i] = ∞
-        For j from i+1 to n−1:
+        For j from i to n:
             If there is an edge from i to j (i.e., graph[i][j] ≠ ∞):
                 Update distance[i] = min(distance[i], graph[i][j] + distance[j])
 3)Return distance[0] as the result.
