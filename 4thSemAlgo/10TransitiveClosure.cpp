@@ -50,5 +50,5 @@ For vertices i and j:
 3)Print the mat.If mat[i][j] = 1, then there is a path from i to j.
 
 Time Complexity: O(V^3)
-Auxiliary Space: O(1)
+Auxiliary Space: O(V^2)
 */
