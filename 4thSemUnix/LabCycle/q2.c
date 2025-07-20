@@ -7,6 +7,7 @@ Write a C program to implement copy command using general file API's
 int main(int argc,char** argv){
     FILE *src,*dst;
     char buffer[BUFFER_SIZE];
+    // Number of bytes read in each iteration
     size_t bytes_read;
     if(argc!=3){
         fprintf(stderr,"Usafe %s <source_file> <destinatio_file>\n",argv[0]);
@@ -20,6 +21,7 @@ int main(int argc,char** argv){
     dst=fopen(argv[2],"rb");
     if(dst==NULL){
         printf("Error opening destionation file");
+        fclose(src);
         exit(EXIT_FAILURE);
     }
     dst=fopen(argv[2],"wb");

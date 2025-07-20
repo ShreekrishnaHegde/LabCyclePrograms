@@ -23,9 +23,9 @@ int main(){
     };
     vector<pair<int, int>> adj[V];
     for (const auto& edge : edges) {
-    int u = edge[0], v = edge[1], wt = edge[2];
-    adj[u].push_back({v, wt});
-    adj[v].push_back({u, wt});  // because the graph is undirected
+        int u = edge[0], v = edge[1], wt = edge[2];
+        adj[u].push_back({v, wt});
+        adj[v].push_back({u, wt});  // because the graph is undirected
     }
     int mstCost = function(V, adj);
     cout << "Minimum Spanning Tree Cost: " << mstCost << endl;
